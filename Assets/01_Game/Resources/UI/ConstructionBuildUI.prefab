@@ -1211,4 +1211,17 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5403443285073409382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2574788582418534891}
+        m_TargetAssemblyTypeName: _01_Game.Scripts.UI.ConstructionBuildUI.ConstructionBuildUI,
+          Assembly-CSharp
+        m_MethodName: OnBuyTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

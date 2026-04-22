@@ -1,6 +1,7 @@
 ﻿using System;
 using _01_Game.Scripts.Manager;
 using _01_Game.Scripts.ScriptableObject;
+using _01_Game.Scripts.Tool;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
@@ -19,16 +20,18 @@ namespace _01_Game.Scripts.UI.ConstructionBuildUI
         [SerializeField] private Image icon;
 
         private Camera _camera;
+        private Transform _target;
         private void Awake()
         {
             _camera = Camera.main;
         }
 
-        public void Setup(TreeDataSO treeDataSo ,Vector3 position)
+        public void Setup(TreeDataSO treeDataSo ,Transform target)
         {
+            _target =  target;
             SetupUI(treeDataSo);
-            Vector2 screenPos = _camera.WorldToScreenPoint(position);
-
+            
+            Vector2 screenPos = _camera.WorldToScreenPoint(target.position);
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvas.transform as RectTransform,
                 screenPos,
@@ -53,6 +56,12 @@ namespace _01_Game.Scripts.UI.ConstructionBuildUI
 
             // Animate popup
             Tween.Scale(frameRect, Vector3.one, 0.3f, Ease.OutBack);
+        }
+
+        public void OnBuyTree()
+        {
+            HideScreen();
+            Observer.Instance.Notify(ObserverKey.OpenBox, _target);
         }
     }
 }

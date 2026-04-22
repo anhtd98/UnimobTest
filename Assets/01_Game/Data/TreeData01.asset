@@ -16,3 +16,4 @@ MonoBehaviour:
   displayName: Tree01
   price: 1000
   sprite: {fileID: 21300000, guid: 9f6e174293e737a44b0c7c85e4fd86f6, type: 3}
+  prefab: {fileID: 5081378640111839596, guid: cfcea1bef252c491e8f667d61a07da44, type: 3}

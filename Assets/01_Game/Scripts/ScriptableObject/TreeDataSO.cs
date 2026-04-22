@@ -10,5 +10,6 @@ namespace _01_Game.Scripts.ScriptableObject
         public string displayName;
         public int price;
         public Sprite sprite;
+        public GameObject prefab;
     }
 }

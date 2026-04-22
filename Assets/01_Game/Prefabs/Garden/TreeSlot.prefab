@@ -69,6 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeData: {fileID: 11400000, guid: bcfc001ff2ac7c84a8c5a3bc83022132, type: 2}
+  boxAnim: {fileID: 7609595739228806949}
+  boxObject: {fileID: 8328007365540478170}
 --- !u!114 &294725097617928614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +155,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd52c4005136b42b390a3c23fd19b769, type: 3}
+--- !u!111 &7609595739228806949 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 6883174531985178943, guid: bd52c4005136b42b390a3c23fd19b769, type: 3}
+  m_PrefabInstance: {fileID: 3899912515826556442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8057708203528235978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6471108813305689552, guid: bd52c4005136b42b390a3c23fd19b769, type: 3}
+  m_PrefabInstance: {fileID: 3899912515826556442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8328007365540478170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5011454522087793344, guid: bd52c4005136b42b390a3c23fd19b769, type: 3}
   m_PrefabInstance: {fileID: 3899912515826556442}
   m_PrefabAsset: {fileID: 0}
