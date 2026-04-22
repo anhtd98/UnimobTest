@@ -114,6 +114,9 @@ MonoBehaviour:
   stopShowInter: 0
   frameRect: {fileID: 8523264045555711862}
   canvas: {fileID: 7754549817234624210}
+  displayText: {fileID: 439066500485159038}
+  priceText: {fileID: 5960345279570530739}
+  icon: {fileID: 7148674740959787627}
 --- !u!1 &459453731996913620
 GameObject:
   m_ObjectHideFlags: 0
