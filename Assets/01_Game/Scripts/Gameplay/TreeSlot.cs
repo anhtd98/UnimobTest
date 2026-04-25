@@ -1,4 +1,6 @@
 ﻿using System;
+using _01_Game.Scripts.Market;
+using _01_Game.Scripts.Model;
 using _01_Game.Scripts.ScriptableObject;
 using _01_Game.Scripts.Tool;
 using _01_Game.Scripts.UI;
@@ -23,9 +25,12 @@ namespace _01_Game.Scripts.Gameplay
         [Header("View")] 
         [SerializeField] private Animation boxAnim;
         [SerializeField] private GameObject boxObject;
+        [SerializeField] private Transform deliveryPosition;
         
         private TreeState _state = TreeState.Box;
         private GameObject _construction;
+        
+        public Vector3 DeliveryPosition => deliveryPosition.position;
 
         private void Start()
         {
@@ -66,10 +71,13 @@ namespace _01_Game.Scripts.Gameplay
                 {
                     boxObject.SetActive(false);
                     _construction = treeData.prefab.Spawn(transform.position + Vector3.up*0.5f, Quaternion.identity);
+                    _construction.transform.SetParent(transform);
                     _construction.GetComponent<ConstructionControl>().Setup(treeData);
                     _state = TreeState.Tree;
+                    Observer.Instance.Notify(ObserverKey.RequestDelivery, transform);
                 });
             }
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using _01_Game.Scripts.Manager;
 using _01_Game.Scripts.ScriptableObject;
 using _01_Game.Scripts.Tool;
@@ -6,6 +7,8 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace _01_Game.Scripts.UI.ConstructionBuildUI
 {
@@ -44,7 +47,7 @@ namespace _01_Game.Scripts.UI.ConstructionBuildUI
         private void SetupUI(TreeDataSO treeDataSo)
         {
             displayText.text = treeDataSo.displayName;
-            priceText.text = NumberFormatter.FormatShort(treeDataSo.price);
+            priceText.text = NumberFormatter.FormatShort(BigInteger.Parse(treeDataSo.price));
             icon.sprite = treeDataSo.sprite;
         }
 

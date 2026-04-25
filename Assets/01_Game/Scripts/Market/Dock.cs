@@ -18,5 +18,9 @@ namespace _01_Game.Scripts.Market
         {
             return customerPoint.position;
         }
+        public Vector3 GetDeliveryPosition()
+        {
+            return deliveryPoint.position;
+        }
     }
 }

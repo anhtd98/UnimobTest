@@ -353,12 +353,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerStart: {fileID: 4815083280070344826}
   customerEnd: {fileID: 8321187045120129019}
+  deliveryEnd: {fileID: 7318137896532572798}
   docks:
   - {fileID: 2885637389729319521}
   - {fileID: 8785537837440024354}
   - {fileID: 4283143665493320214}
   - {fileID: 5203020043980364737}
   customer: {fileID: 5081378640111839596, guid: 9e73c309783284fd2bb50baca4fe3da9, type: 3}
+  delivery: {fileID: 5081378640111839596, guid: a798966e7b2044a12be9b4ba810e52ad, type: 3}
 --- !u!1 &5823776604973698877
 GameObject:
   m_ObjectHideFlags: 0

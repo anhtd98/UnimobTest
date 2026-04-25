@@ -8,7 +8,8 @@ namespace _01_Game.Scripts.ScriptableObject
     {
         public string id;
         public string displayName;
-        public int price;
+        public string price;
+        public string priceProduct;
         public Sprite sprite;
         public GameObject prefab;
     }

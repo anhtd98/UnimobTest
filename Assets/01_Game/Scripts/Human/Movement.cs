@@ -9,6 +9,7 @@ namespace _01_Game.Scripts.Human
 
         private NavMeshAgent _agent;
         private Animator _animator;
+        private bool _hasArrived = false;
         
         private readonly int _isMove = Animator.StringToHash("IsMove");
         
@@ -22,21 +23,22 @@ namespace _01_Game.Scripts.Human
         public void MoveToPoint(Vector3 point)
         {
             _agent.SetDestination(point);
+            _hasArrived = false;
             _animator.SetBool(_isMove, true);
         }
 
         public void OnReachDestination(Action action)
         {
-            onReachDestination =  action;
+            onReachDestination = action;
         }
 
         private void Update()
         {
-            if (HasReachedDestination())
+            if (HasReachedDestination() && !_hasArrived)
             {
+                _hasArrived = true;
                 _animator.SetBool(_isMove, false);
                 onReachDestination?.Invoke();
-                onReachDestination = null;
             }
         }
         public bool HasReachedDestination()

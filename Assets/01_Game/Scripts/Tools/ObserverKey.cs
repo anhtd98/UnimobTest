@@ -5,5 +5,8 @@ namespace _01_Game.Scripts.Tool
         public const string GoldKey = "Gold";
         public const string ZoomCameraKey = "Zoom_Camera";
         public const string OpenBox =  "OpenBox";
+        public const string RequestDelivery =  "RequestDelivery";
+        public const string DeliveryReady =  "DeliveryReady";
+        public const string CustomerReady =  "CustomerReady";
     }
 }
