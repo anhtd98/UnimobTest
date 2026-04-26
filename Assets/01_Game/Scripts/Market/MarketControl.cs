@@ -97,15 +97,17 @@ namespace _01_Game.Scripts.Market
 
                 dControl.MoveToPoint(dockTarget.GetDeliveryPosition(), () =>
                 {
-                    cControl.ReceiveProduct(dControl.GetProduct());
-                    dControl.MoveToPoint(deliveryEnd.position, () => dControl.Recycle());
-                    cControl.MoveToPoint(customerEnd.position, () => cControl.Recycle());
-                    dockTarget.status = DockStatus.Empty;
-                    SpawnCustomer();
-                    SpawnDelivery(dControl.TreeSlot);
+                    cControl.ReceiveProduct(dControl.GetProduct(), () =>
+                    {
+                        dControl.MoveToPoint(deliveryEnd.position, () => dControl.Recycle());
+                        cControl.MoveToPoint(customerEnd.position, () => cControl.Recycle());
+                        dockTarget.status = DockStatus.Empty;
+                        SpawnCustomer();
+                        SpawnDelivery(dControl.TreeSlot);
 
-                    var money = dControl.GetProduct().price;
-                    SaveDataManager.Global.AddGold(money);
+                        var money = dControl.GetProduct().price;
+                        SaveDataManager.Global.AddGold(money);
+                    });
                 });
             }
         }

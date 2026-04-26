@@ -4,7 +4,7 @@ using _01_Game.Scripts.Market;
 using _01_Game.Scripts.Model;
 using _01_Game.Scripts.Tool;
 using MainGame.Services.Utils;
-using Unity.VisualScripting;
+using PrimeTween;
 using UnityEngine;
 
 namespace _01_Game.Scripts.Human
@@ -51,13 +51,38 @@ namespace _01_Game.Scripts.Human
             _mover.OnReachDestination(() => this.Recycle());
         }
 
-        public void ReceiveProduct(ProductData product)
+        public void ReceiveProduct(ProductData product, Action onComplete)
         {
             for (int i = 0; i < product.productsVisual.Count; i++)
             {
-                product.productsVisual[i].SetParent(productPoints[i]);
-                product.productsVisual[i].position = productPoints[i].position;
+                var item = product.productsVisual[i];
+                var target = productPoints[i];
+
+                Vector3 start = item.position;
+                Vector3 end = target.position;
+
+                float duration = 0.3f;
+                float height = 1.5f;
+
+                item.SetParent(target, true);
+
+                float delay = i * 0.05f; // lệch 0.05s mỗi item
+
+                Tween.Delay(delay).OnComplete(() =>
+                {
+                    Tween.Custom(0f, 1f, duration, t =>
+                    {
+                        Vector3 pos = Vector3.Lerp(start, end, t);
+                        float arc = height * 4f * t * (1f - t);
+                        pos.y += arc;
+
+                        item.position = pos;
+                    });
+                });
             }
+
+            Tween.Delay(0.3f,() => onComplete());
+
         }
     }
 }

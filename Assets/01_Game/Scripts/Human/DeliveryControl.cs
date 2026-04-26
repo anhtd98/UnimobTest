@@ -4,6 +4,7 @@ using _01_Game.Scripts.Gameplay;
 using _01_Game.Scripts.Market;
 using _01_Game.Scripts.Model;
 using _01_Game.Scripts.Tool;
+using PrimeTween;
 using UnityEngine;
 
 namespace _01_Game.Scripts.Human
@@ -44,10 +45,38 @@ namespace _01_Game.Scripts.Human
                 _productData = product.GetProduct();
                 for (int i = 0; i < _productData.productsVisual.Count; i++)
                 {
-                    _productData.productsVisual[i].SetParent(productPoints[i]);
-                    _productData.productsVisual[i].position = productPoints[i].position;
+                    var item = _productData.productsVisual[i];
+                    var target = productPoints[i];
+
+                    Vector3 start = item.position;
+                    Vector3 end = target.position;
+
+                    float duration = 0.3f;
+                    float height = 1.5f;
+
+                    item.SetParent(target, true);
+
+                    float delay = i * 0.05f; // lệch 0.05s mỗi item
+
+                    Tween.Delay(delay).OnComplete(() =>
+                    {
+                        Tween.Custom(0f, 1f, duration, t =>
+                        {
+                            Vector3 pos = Vector3.Lerp(start, end, t);
+                            float arc = height * 4f * t * (1f - t);
+                            pos.y += arc;
+
+                            item.position = pos;
+                        });
+                    });
                 }
-                Observer.Instance.Notify(ObserverKey.DeliveryReady, transform);
+
+                Tween.Delay(0.3f, () =>
+                {
+                    Observer.Instance.Notify(ObserverKey.DeliveryReady, transform);
+                });
+
+
             }
 
         }
