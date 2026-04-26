@@ -731,7 +731,7 @@ MonoBehaviour:
   popupAnimator: {fileID: 0}
   bg: {fileID: 0}
   stopShowInter: 0
-  goldTxt: {fileID: 0}
+  goldTxt: {fileID: 4964923324405000292}
   progressUnbox: {fileID: 428116363456936807, guid: cc6c60fb3cf749048bf554a2d464129e, type: 3}
   progressRoot: {fileID: 155343756433428041}
 --- !u!1 &3792043764735409199

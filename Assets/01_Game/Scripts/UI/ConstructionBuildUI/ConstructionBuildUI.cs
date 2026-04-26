@@ -64,6 +64,7 @@ namespace _01_Game.Scripts.UI.ConstructionBuildUI
         public void OnBuyTree()
         {
             HideScreen();
+            SaveDataManager.Global.OpenTree(_target);
             Observer.Instance.Notify(ObserverKey.OpenBox, _target);
         }
     }

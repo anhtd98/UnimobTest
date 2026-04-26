@@ -1,4 +1,5 @@
-﻿using _01_Game.Scripts.Tool;
+﻿using _01_Game.Scripts.Manager;
+using _01_Game.Scripts.Tool;
 using _01_Game.Scripts.UI.Element;
 using MainGame.Services.Utils;
 using PrimeTween;
@@ -14,15 +15,27 @@ namespace _01_Game.Scripts.UI.MainUI
         [Header("Element")] 
         [SerializeField] private ProgressUnbox progressUnbox;
         [SerializeField] private Transform progressRoot;
-        private void Start()
+
+        public override void OnShow()
         {
+            base.OnShow();
+            UpdateGold(null);
             Observer.Instance.AddObserver(ObserverKey.OpenBox,OpenBox);
+            Observer.Instance.AddObserver(ObserverKey.GoldKey,UpdateGold);
         }
 
-        private void OnDestroy()
+        public override void OnHide()
         {
+            base.OnHide();
             Observer.Instance.RemoveObserver(ObserverKey.OpenBox,OpenBox);
+            Observer.Instance.RemoveObserver(ObserverKey.GoldKey,UpdateGold);
         }
+
+        private void UpdateGold(object obj)
+        {
+            goldTxt.text = NumberFormatter.FormatShort(SaveDataManager.Global.GetGold());
+        }
+        
         public void OpenBox(object data)
         {
             var timeProg = 10f;

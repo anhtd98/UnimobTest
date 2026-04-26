@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
+using _01_Game.Scripts.Gameplay;
+using _01_Game.Scripts.Model;
 using _01_Game.Scripts.Tool;
 using UnityEngine;
 
@@ -42,6 +46,16 @@ namespace _01_Game.Scripts.Manager
                         gold = 100,
                     },
                     settingData = new SettingData(),
+                    gardenData = new GardenData
+                    {
+                        treeData = new List<TreeData>
+                        {
+                            new TreeData{slot = 1},
+                            new TreeData{slot = 2},
+                            new TreeData{slot = 3},
+                            new TreeData{slot = 4},
+                        }
+                    }
                 };
             }
         }
@@ -124,6 +138,26 @@ namespace _01_Game.Scripts.Manager
             return saveData.settingData.vibrationEnabled;
         }
         #endregion
+
+        #region Garden
+
+        public void OpenTree(Transform tree)
+        {
+            if (tree.TryGetComponent(out TreeSlot data))
+            {
+                var a = saveData.gardenData.treeData.FirstOrDefault(x => x.slot == data.IndexSlot);
+                if (a != null)
+                {
+                    a.status = TreeStatus.Available;
+                }
+            }
+        }
+        public TreeData GetTreeData(int slot)
+        {
+            return saveData.gardenData.treeData.FirstOrDefault(x => x.slot == slot);
+        }
+
+        #endregion
         private void OnApplicationQuit()
         {
             SaveData();
@@ -141,6 +175,7 @@ namespace _01_Game.Scripts.Manager
         public int level = 1;
         public PlayerData playerData;
         public SettingData settingData;
+        public GardenData gardenData;
     }
     [Serializable]
     public class PlayerData

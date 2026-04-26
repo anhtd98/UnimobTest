@@ -234,6 +234,8 @@ MonoBehaviour:
       sfxEnabled: 1
       vibrationEnabled: 1
       zoomCamera: 1
+    gardenData:
+      treeData: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +889,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1618921692100935338, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
   m_PrefabInstance: {fileID: 9093566299925566683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &854320747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9144362263738486943, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
+  m_PrefabInstance: {fileID: 9093566299925566683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47cd7adf82543b5ade8a5f788cb339f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1144818823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9144362263738486943, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
+  m_PrefabInstance: {fileID: 589727639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47cd7adf82543b5ade8a5f788cb339f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1236842354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -949,6 +973,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6540654423376592508, guid: 22a853b12f2114bc39874a3da3615686, type: 3}
   m_PrefabInstance: {fileID: 1236842354}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308933023 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9144362263738486943, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
+  m_PrefabInstance: {fileID: 1480687}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47cd7adf82543b5ade8a5f788cb339f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1414545721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1079,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1618921692100935338, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
   m_PrefabInstance: {fileID: 1505845806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1505845809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9144362263738486943, guid: f4001217be0967c47ac6e1b7d20839ce, type: 3}
+  m_PrefabInstance: {fileID: 1505845806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47cd7adf82543b5ade8a5f788cb339f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555482787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691739160}
+  - component: {fileID: 1691739161}
   m_Layer: 0
   m_Name: Garden
   m_TagString: Untagged
@@ -1266,6 +1313,23 @@ Transform:
   - {fileID: 589727640}
   m_Father: {fileID: 463996723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1691739161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691739159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885a71060861415d8f496c73c2e12618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeSlots:
+  - {fileID: 854320747}
+  - {fileID: 1505845809}
+  - {fileID: 1308933023}
+  - {fileID: 1144818823}
 --- !u!1 &2115384383
 GameObject:
   m_ObjectHideFlags: 0

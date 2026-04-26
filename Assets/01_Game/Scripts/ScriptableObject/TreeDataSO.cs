@@ -12,5 +12,15 @@ namespace _01_Game.Scripts.ScriptableObject
         public string priceProduct;
         public Sprite sprite;
         public GameObject prefab;
+
+        public BigInteger PriceUpgrade(int lv = 1)
+        {
+            return BigInteger.Parse(price) * (2 * lv);
+        }
+        public BigInteger PriceProduct(int lv = 1)
+        {
+            var a = BigInteger.Parse(priceProduct);
+            return a + (a / 10 * (lv - 1));
+        }
     }
 }

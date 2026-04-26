@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _01_Game.Scripts.Gameplay;
 using _01_Game.Scripts.Human;
+using _01_Game.Scripts.Manager;
 using _01_Game.Scripts.Tool;
 using MainGame.Services.Utils;
 using UnityEngine;
@@ -27,15 +28,14 @@ namespace _01_Game.Scripts.Market
 
         private void Awake()
         {
-            
+            Observer.Instance.AddObserver(ObserverKey.RequestDelivery, OnRequestDelivery);
+            Observer.Instance.AddObserver(ObserverKey.CustomerReady, CheckMarketStatus);
+            Observer.Instance.AddObserver(ObserverKey.DeliveryReady, CheckMarketStatus);
         }
 
         private void Start()
         {
             SpawnCustomer();
-            Observer.Instance.AddObserver(ObserverKey.RequestDelivery, OnRequestDelivery);
-            Observer.Instance.AddObserver(ObserverKey.CustomerReady, CheckMarketStatus);
-            Observer.Instance.AddObserver(ObserverKey.DeliveryReady, CheckMarketStatus);
         }
 
         private void OnDestroy()
@@ -103,6 +103,9 @@ namespace _01_Game.Scripts.Market
                     dockTarget.status = DockStatus.Empty;
                     SpawnCustomer();
                     SpawnDelivery(dControl.TreeSlot);
+
+                    var money = dControl.GetProduct().price;
+                    SaveDataManager.Global.AddGold(money);
                 });
             }
         }
