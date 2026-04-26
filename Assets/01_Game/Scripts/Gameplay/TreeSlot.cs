@@ -92,7 +92,7 @@ namespace _01_Game.Scripts.Gameplay
             boxObject.SetActive(false);
             _construction = treeData.prefab.Spawn(transform.position + Vector3.up*0.5f, Quaternion.identity);
             _construction.transform.SetParent(transform);
-            _construction.GetComponent<ConstructionControl>().Setup(treeData);
+            _construction.GetComponent<ConstructionControl>().Setup(treeData, _indexSlot);
             _state = TreeState.Tree;
             Observer.Instance.Notify(ObserverKey.RequestDelivery, transform);
         }

@@ -141,6 +141,16 @@ namespace _01_Game.Scripts.Manager
 
         #region Garden
 
+        public void UpgradeTree(int slot, int level)
+        {
+            var a = saveData.gardenData.treeData.FirstOrDefault(x => x.slot == slot);
+            if (a != null)
+            {
+
+                a.level = level; 
+            }
+
+        }
         public void OpenTree(Transform tree)
         {
             if (tree.TryGetComponent(out TreeSlot data))

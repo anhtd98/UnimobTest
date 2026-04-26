@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using _01_Game.Scripts.Gameplay;
 using _01_Game.Scripts.Manager;
 using _01_Game.Scripts.ScriptableObject;
 using PrimeTween;
@@ -28,6 +29,7 @@ namespace _01_Game.Scripts.UI.ContructionUpgradeUI
         private Transform _target;
         private int _currentLevel = 1;
         private TreeDataSO _treeDataSo;
+        private int _indexSlot;
         private void Awake()
         {
             _camera = Camera.main;
@@ -43,6 +45,13 @@ namespace _01_Game.Scripts.UI.ContructionUpgradeUI
         }
         public void Setup(TreeDataSO treeDataSo ,Transform target)
         {
+            if (target.TryGetComponent(out TreeSlot treeSlot))
+            {
+                _indexSlot = treeSlot.IndexSlot;
+            }
+
+            var data = SaveDataManager.Global.GetTreeData(_indexSlot);
+            _currentLevel = data.level;
             _target =  target;
             _treeDataSo =  treeDataSo;
             SetupUI(treeDataSo);
@@ -73,6 +82,7 @@ namespace _01_Game.Scripts.UI.ContructionUpgradeUI
                 return;
             _currentLevel++;
             SetupUI(_treeDataSo);
+            SaveDataManager.Global.UpgradeTree(_indexSlot,_currentLevel);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using _01_Game.Scripts.Manager;
 using _01_Game.Scripts.Market;
 using _01_Game.Scripts.Model;
 using _01_Game.Scripts.ScriptableObject;
@@ -17,10 +18,13 @@ namespace _01_Game.Scripts.Gameplay
         
         private TreeDataSO _treeDataSo;
         private List<Transform> products;
-        
-        public void Setup(TreeDataSO treeData)
+        private int _slot;
+        private TreeData _treeData;
+        public void Setup(TreeDataSO treeData, int indexSlot)
         {
             _treeDataSo = treeData;
+            _slot = indexSlot;
+            _treeData = SaveDataManager.Global.GetTreeData(_slot);
         }
 
         private void OnEnable()
@@ -51,7 +55,7 @@ namespace _01_Game.Scripts.Gameplay
         {
             var p = new ProductData();
             p.productsVisual = products;
-            p.price = BigInteger.Parse(_treeDataSo.priceProduct);
+            p.price = _treeDataSo.PriceProduct(_treeData.level);
             Tween.Delay(1, SpawnProducts);
             return p;
         }
