@@ -26,6 +26,10 @@ namespace _01_Game.Scripts.UI.UpgradeUI
 
         private void SetupUI()
         {
+            foreach (Transform a in content)
+            {
+                Destroy(a.gameObject);
+            }
             var storeUpgrade = SaveDataManager.Global.GetAllUpgrade();
             var availableUpgrade = allUpgrade.Where(x => !storeUpgrade.Contains(x.id)).ToList();
             for (int i = 0; i < availableUpgrade.Count; i++)
