@@ -35,7 +35,11 @@ namespace _01_Game.Scripts.UI.MainUI
         {
             goldTxt.text = NumberFormatter.FormatShort(SaveDataManager.Global.GetGold());
         }
-        
+
+        public void OpenUpgradeUI()
+        {
+            MasterUI.Global.Show<UpgradeUI.UpgradeUI>();
+        }
         public void OpenBox(object data)
         {
             var timeProg = 10f;

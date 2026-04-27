@@ -6,6 +6,7 @@ namespace _01_Game.Scripts.Model
     public class GardenData
     {
         public List<TreeData> treeData;
+        public int amountCustomer = 1;
     }
 
     [System.Serializable]

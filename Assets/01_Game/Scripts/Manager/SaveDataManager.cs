@@ -55,7 +55,8 @@ namespace _01_Game.Scripts.Manager
                             new TreeData{slot = 3},
                             new TreeData{slot = 4},
                         }
-                    }
+                    },
+                    allUpgrade = new List<string>()
                 };
             }
         }
@@ -141,6 +142,24 @@ namespace _01_Game.Scripts.Manager
 
         #region Garden
 
+        public List<string> GetAllUpgrade()
+        {
+            return saveData.allUpgrade;
+        }
+        public void AddUpgrade(string id)
+        {
+            saveData.allUpgrade.Add(id);
+        }
+        public void AddCustomer(int amount)
+        {
+            saveData.gardenData.amountCustomer += amount;
+            Observer.Instance.Notify(ObserverKey.AddCustomer, amount); 
+        }
+
+        public int GetTotalCustomer()
+        {
+            return saveData.gardenData.amountCustomer;
+        }
         public void UpgradeTree(int slot, int level)
         {
             var a = saveData.gardenData.treeData.FirstOrDefault(x => x.slot == slot);
@@ -186,6 +205,7 @@ namespace _01_Game.Scripts.Manager
         public PlayerData playerData;
         public SettingData settingData;
         public GardenData gardenData;
+        public List<string> allUpgrade;
     }
     [Serializable]
     public class PlayerData

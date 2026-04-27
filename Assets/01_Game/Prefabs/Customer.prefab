@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 6585727328422918219}
   - component: {fileID: 5018984267095230995}
   - component: {fileID: 595491851777559520}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1340,7 +1340,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 5081378640111839596}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

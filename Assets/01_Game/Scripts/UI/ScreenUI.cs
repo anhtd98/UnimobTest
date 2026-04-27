@@ -10,12 +10,9 @@ namespace _01_Game.Scripts.UI
         public MasterUI Controller;
         public bool IsModal;
         public int priority;
-        public bool isMrec;
         [Header("Popup Animation")]
         [SerializeField] private Animator popupAnimator;
         [SerializeField] private CanvasGroup bg;
-        
-        public bool stopShowInter;
         public virtual void Init()
         {
 

@@ -31,11 +31,17 @@ namespace _01_Game.Scripts.Market
             Observer.Instance.AddObserver(ObserverKey.RequestDelivery, OnRequestDelivery);
             Observer.Instance.AddObserver(ObserverKey.CustomerReady, CheckMarketStatus);
             Observer.Instance.AddObserver(ObserverKey.DeliveryReady, CheckMarketStatus);
+            Observer.Instance.AddObserver(ObserverKey.AddCustomer, AddCustomer);
         }
 
         private void Start()
         {
-            SpawnCustomer();
+            var amountCustomer = SaveDataManager.Global.GetTotalCustomer();
+            for (int i = 0; i < amountCustomer; i++)
+            {
+                SpawnCustomer();
+            }
+
         }
 
         private void OnDestroy()
@@ -43,8 +49,17 @@ namespace _01_Game.Scripts.Market
             Observer.Instance.RemoveObserver(ObserverKey.RequestDelivery, OnRequestDelivery);
             Observer.Instance.RemoveObserver(ObserverKey.CustomerReady, CheckMarketStatus);
             Observer.Instance.RemoveObserver(ObserverKey.DeliveryReady, CheckMarketStatus);
+            Observer.Instance.RemoveObserver(ObserverKey.AddCustomer, AddCustomer);
         }
 
+        private void AddCustomer(object obj)
+        {
+            var amount = (int)obj;
+            for (int i = 0; i < amount; i++)
+            {
+                SpawnCustomer();
+            }
+        }
         private void SpawnCustomer()
         {
             var cus = customer.Spawn(customerStart.position);

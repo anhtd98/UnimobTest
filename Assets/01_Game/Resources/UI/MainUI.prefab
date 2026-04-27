@@ -164,7 +164,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3440040395630801007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4254713069764548374}
+        m_TargetAssemblyTypeName: _01_Game.Scripts.UI.MainUI.MainUI, Assembly-CSharp
+        m_MethodName: OpenUpgradeUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1477744728616348851
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,10 +739,8 @@ MonoBehaviour:
   Controller: {fileID: 0}
   IsModal: 0
   priority: 0
-  isMrec: 0
   popupAnimator: {fileID: 0}
   bg: {fileID: 0}
-  stopShowInter: 0
   goldTxt: {fileID: 4964923324405000292}
   progressUnbox: {fileID: 428116363456936807, guid: cc6c60fb3cf749048bf554a2d464129e, type: 3}
   progressRoot: {fileID: 155343756433428041}

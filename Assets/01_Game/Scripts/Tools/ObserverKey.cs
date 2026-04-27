@@ -8,5 +8,6 @@ namespace _01_Game.Scripts.Tool
         public const string RequestDelivery =  "RequestDelivery";
         public const string DeliveryReady =  "DeliveryReady";
         public const string CustomerReady =  "CustomerReady";
+        public const string AddCustomer =  "AddCustomer";
     }
 }
