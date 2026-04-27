@@ -7,6 +7,7 @@ namespace _01_Game.Scripts.Model
     {
         public List<TreeData> treeData;
         public int amountCustomer = 1;
+        public int profit = 0;
     }
 
     [System.Serializable]

@@ -79,7 +79,8 @@ namespace _01_Game.Scripts.Manager
 
         public void AddGold(BigInteger amount)
         {
-            saveData.playerData.gold += amount;
+            var target = amount + (amount / 100 * saveData.gardenData.profit);
+            saveData.playerData.gold += target;
             Observer.Instance.Notify(ObserverKey.GoldKey);
         }
 
@@ -156,6 +157,10 @@ namespace _01_Game.Scripts.Manager
             Observer.Instance.Notify(ObserverKey.AddCustomer, amount); 
         }
 
+        public void AddProfit(int amount)
+        {
+            saveData.gardenData.profit += amount;
+        }
         public int GetTotalCustomer()
         {
             return saveData.gardenData.amountCustomer;

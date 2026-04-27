@@ -701,6 +701,9 @@ MonoBehaviour:
   allUpgrade:
   - {fileID: 11400000, guid: 347af856dc7b55048bb87d9a9b9f7364, type: 2}
   - {fileID: 11400000, guid: 5dc702229a78bb643aca19ab7c4cc3a4, type: 2}
+  - {fileID: 11400000, guid: a35fa31b35a888e4fa4b5dee4f0feca9, type: 2}
+  - {fileID: 11400000, guid: b1e3ca41b13be814389f5fb9dff8ebfe, type: 2}
+  - {fileID: 11400000, guid: 02ecab75e019c4c40a9506ea05387508, type: 2}
   frameRect: {fileID: 827232320253912537}
   content: {fileID: 6342653749741432078}
   upgradeItemView: {fileID: 8745373821012773738, guid: 37a1f9ee4140b40c5b9c020a7137b0c1, type: 3}
